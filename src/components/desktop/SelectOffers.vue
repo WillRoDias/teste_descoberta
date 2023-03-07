@@ -33,36 +33,36 @@
           </label>
           <label>
             <p>ATÉ QUANTO PODE PAGAR?</p>
-            <input type="range"
-          /></label>
+            <input type="range" class="range" />
+          </label>
         </form>
       </div>
       <div class="results" v-if="showResults">
         <p>Resultado:</p>
         <p>ordenar por</p>
         <div class="result-offer" v-for="data in data" :key="data">
-          <form>
-            <input type="checkbox" />
-          </form>
-          <div class="ies-logo"><img :src="data.university.logo_url"></div>
+          <input type="checkbox" />
+          <div class="ies-logo"><img :src="data.university.logo_url" /></div>
           <div class="course-content">
-            <p>{{data.course.name}}</p>
-            <p>{{data.course.level}}</p>
+            <p>{{ data.course.name }}</p>
+            <p>{{ data.course.level }}</p>
           </div>
           <div class="payment-offer">
-            <p>Bolsa de {{data.discount_percentage}}%</p>
-            <p>R$ {{data.price_with_discount}}/mês</p>
+            <p>Bolsa de {{ data.discount_percentage }}%</p>
+            <p>R$ {{ data.price_with_discount }}/mês</p>
           </div>
         </div>
-        <div >
-        </div>
+      </div>
+      <div class="buttons">
+        <button>asfgag</button>
+        <button>asgeawrgb</button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Data from '@/db.json'
+import Data from "@/db.json";
 export default {
   name: "SelectOffers",
   data() {
@@ -73,9 +73,9 @@ export default {
       course_levels: [{ name: "graduação" }, { name: "pós-graduação" }],
     };
   },
-  mounted(){
+  mounted() {
     console.log(this.data);
-  }
+  },
 };
 </script>
 
