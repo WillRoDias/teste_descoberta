@@ -1,0 +1,59 @@
+@import '@/styles/global.scss';
+
+.content {
+  padding: 0 10%;
+}
+
+a{
+  cursor: pointer;
+}
+
+.card{
+  width: 275px;
+  height: 450px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  @extend %display-flex-column;
+  justify-content: center;
+  padding: 30px;
+  margin: 20px;
+}
+
+.cards{
+  @extend %display-flex-row;
+}
+
+nav {
+  border: solid 1px $secondary-blue;
+  border-radius: 10px;
+  overflow: hidden;
+  width: fit-content;
+  margin: 50px 0 50px 0;
+
+
+  p {
+    padding: 0.1in;
+    margin: 0;
+  }
+
+  a {
+    padding: 0.1in;
+    transition: 0.3s;
+
+    p {
+      display: inline-block;
+      color: $secondary-blue;
+      font-weight: bolder;
+      transition: 0.3s;
+    }
+  }
+
+  a:hover {
+    background-color: $secondary-blue;
+
+    p {
+      color: white;
+    }
+  }
+
+}

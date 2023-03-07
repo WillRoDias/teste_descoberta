@@ -1,0 +1,28 @@
+@import '@/styles/global.scss';
+
+*{
+  @extend %display-flex-column;
+}
+
+.card{
+  width: 275px;
+  height: 450px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 30px;
+}
+
+.ies-course-info{
+  border-bottom: solid 2px rgb(238, 238, 238);
+  p{
+    font-weight: bold;
+  }
+}
+
+.course-info{
+  border-bottom: solid 2px rgb(238, 238, 238);
+}
+
+.qb-course-info{
+  border-bottom: solid 2px rgb(238, 238, 238);
+}

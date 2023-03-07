@@ -1,0 +1,64 @@
+@import "../global.scss";
+
+a {
+  cursor: pointer;
+  padding: 0 0.2in;
+}
+
+nav {
+  @extend %display-flex-row;
+  padding: 0 10%;
+}
+
+p {
+  font-weight: bold;
+}
+
+.nav-primary {
+  a {
+    p {
+      color: $secondary-blue;
+      transition: 0.3s;
+    }
+  }
+
+  a:hover {
+    p {
+      color: $primary-blue;
+    }
+  }
+
+  .about {
+    border-right: solid rgb(238, 238, 238) 3px;
+  }
+
+  .logo {
+    flex: 2;
+    text-align: center;
+    cursor: pointer;
+
+    svg {
+      width: 150px;
+    }
+  }
+
+  .user-name {
+    flex: 1;
+    text-align: right;
+  }
+}
+
+.nav-secondary {
+  background-color: $primary-blue;
+
+  a {
+    p {
+      color: white;
+    }
+    transition: 0.3s;
+  }
+
+  a:hover {
+    background-color: $secondary-blue;
+  }
+}
