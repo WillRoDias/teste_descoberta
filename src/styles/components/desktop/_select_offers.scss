@@ -1,128 +1,140 @@
 @import '@/styles/global.scss';
 
-select {
-  width: 100%;
-  height: 50px
-}
-
-label {
-  p {
-    margin: 0;
-    ;
-  }
-}
-
-p{
-  color: $black-text-color;
-}
-
-.heading {
-  h2 {
-    margin: 0;
-  }
-}
-
-.buttons{
-  text-align: right;
-  padding-top: 20px;
-  button{
-    padding: 10px;
-    margin: 5px;
-    border-radius: 4px;
-    font-weight: bolder;
-    cursor: pointer;
-  }
-  .cancell-buttom{
-    background-color: white;
-    border: solid $secondary-blue 1px;
-    color: $secondary-blue;
-    transition: 0.2s;
-  }
-  .cancell-buttom:hover{
-    background-color: $primary-blue;
-    color: white;
-  }
-  .add-buttom{
-    background-color: $primary-yellow;
-    border: solid $secondary-yellow 1px;
-    transition: 0.2s;
-  }
-  .add-buttom:hover{
-    background-color: white
-  }
-}
-
-.filter {
-  @extend %display-flex-row;
-  justify-content: space-between;
-}
-
-form {
-  width: 400px;
-}
-
-.ies-logo {
-  overflow: hidden;
-  height: 80px;
-  @extend %display-flex-row;
-  flex: 1;
-  justify-content: center;
-
-  img {
-    object-fit: cover;
-    max-height: 60%;
-  }
-}
-
-input.range {
-  width: 100%;
-}
-
 .background {
-  overflow: auto;
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
   @extend %display-flex-column;
+  background-color: rgba(0, 0, 0, 0.6);
   justify-content: center;
-  background: rgba(48, 48, 48, 0.8);
-}
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
 
-.content {
-  background-color: white;
-  padding: 40px;
-  max-height: 650px;
-  max-width: 70%;
-}
+  .container {
+    @extend %display-flex-column;
+    background-color: white;
+    padding: 30px;
+    height: 85%;
+    width: 680px;
 
-.filter {
-  @extend %display-flex-row;
+    .filter {
+      @extend %display-flex-row;
+      font-weight: bold;
+      width: 100%;
 
-  .secondary {
-    right: 0;
-  }
-}
+      .filter-left {
+        width: 320px;
+        margin-right: auto;
+        height: 150px;
 
-.results {
-  overflow: auto;
-  max-height: 65%;
+        .checkboxes {
+          @extend %display-flex-row;
+          margin-top: 20px;
+          font-weight: lighter;
 
-  p {
-    display: inline-block;
-  }
-}
+          input {
+            margin-right: 10px;
+          }
 
-.result-offer {
-  border-top: solid lightgray 2px;
-  max-width: 100%;
-  @extend %display-flex-row;
+          p {
+            margin-right: 10px;
+          }
+        }
+      }
 
-  p {
-    display: block;
-  }
+      .filter-right {
+        width: 320px;
+        height: 150px;
 
-  .course-content {
-    flex: 1;
-    text-align: center;
+        input {
+          width: 100%;
+        }
+
+        .range-input {
+          margin-top: 20px;
+        }
+      }
+
+      select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        margin-top: 10px;
+        border: solid 1px lightgray;
+        border-radius: 5px;
+        background-color: white;
+        font-weight: bold;
+      }
+
+      p {
+        margin: 0;
+      }
+    }
+
+    .heading {
+      width: 100%;
+    }
+
+    .result-content {
+      @extend %display-flex-column;
+      justify-content: space-between;
+      width: 100%;
+      overflow: auto;
+
+      .result-info {
+        @extend %display-flex-row;
+        border-bottom: solid 2px lightgrey;
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      .load-results {
+        max-height: 100%;
+        overflow: auto;
+        width: 100%;
+
+        .results {
+          @extend %display-flex-row;
+          height: 80px;
+          border-bottom: solid lightgrey 2px;
+
+          .ies-offer-data {
+            @extend %display-flex-row;
+            justify-content: space-between;
+            width: 100%;
+            height: 100%;
+
+            .ies-logo {
+              text-align: center;
+              object-fit: cover;
+              height: 75%;
+              flex: 1;
+
+              img {
+                height: 80%;
+              }
+            }
+
+            .course-info {
+              flex: 2;
+
+              padding-left: 10px;
+              p {
+                text-align: left;
+              }
+            }
+
+            .payment-info {
+              text-align: right;
+              padding-right: 10px;
+            }
+          }
+        }
+      }
+    }
+    .buttons{
+      width: 100%;
+      text-align: right;
+      margin-top: 20px;
+      padding: 10px;
+    }
   }
 }
