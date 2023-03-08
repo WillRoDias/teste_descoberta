@@ -1,33 +1,85 @@
 @import '@/styles/global.scss';
 
-select{
+select {
   width: 100%;
   height: 50px
 }
 
-.filter{
+label {
+  p {
+    margin: 0;
+    ;
+  }
+}
+
+p{
+  color: $black-text-color;
+}
+
+.heading {
+  h2 {
+    margin: 0;
+  }
+}
+
+.buttons{
+  text-align: right;
+  padding-top: 20px;
+  button{
+    padding: 10px;
+    margin: 5px;
+    border-radius: 4px;
+    font-weight: bolder;
+    cursor: pointer;
+  }
+  .cancell-buttom{
+    background-color: white;
+    border: solid $secondary-blue 1px;
+    color: $secondary-blue;
+    transition: 0.2s;
+  }
+  .cancell-buttom:hover{
+    background-color: $primary-blue;
+    color: white;
+  }
+  .add-buttom{
+    background-color: $primary-yellow;
+    border: solid $secondary-yellow 1px;
+    transition: 0.2s;
+  }
+  .add-buttom:hover{
+    background-color: white
+  }
+}
+
+.filter {
   @extend %display-flex-row;
   justify-content: space-between;
 }
 
-form{
+form {
   width: 400px;
 }
 
-.ies-logo{
+.ies-logo {
   overflow: hidden;
   height: 80px;
-  img{
+  @extend %display-flex-row;
+  flex: 1;
+  justify-content: center;
+
+  img {
     object-fit: cover;
-    max-height: 70%;
+    max-height: 60%;
   }
 }
 
-input.range{
+input.range {
   width: 100%;
 }
 
 .background {
+  overflow: auto;
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -39,31 +91,37 @@ input.range{
 .content {
   background-color: white;
   padding: 40px;
-  max-height: 70%;
-  overflow: auto;
+  max-height: 650px;
   max-width: 70%;
 }
 
 .filter {
   @extend %display-flex-row;
-  .secondary{
+
+  .secondary {
     right: 0;
   }
 }
 
 .results {
+  overflow: auto;
+  max-height: 65%;
+
   p {
     display: inline-block;
   }
 }
 
-.result-offer{
+.result-offer {
   border-top: solid lightgray 2px;
+  max-width: 100%;
   @extend %display-flex-row;
-  p{
+
+  p {
     display: block;
   }
-  .course-content{
+
+  .course-content {
     flex: 1;
     text-align: center;
   }

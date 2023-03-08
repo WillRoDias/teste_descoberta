@@ -1,6 +1,5 @@
 <template>
   <div class="background">
-    <!-- <button>close</button> -->
     <div class="content">
       <div class="heading">
         <h2>Adicionar bolsa</h2>
@@ -54,8 +53,8 @@
         </div>
       </div>
       <div class="buttons">
-        <button>asfgag</button>
-        <button>asgeawrgb</button>
+        <button class="cancell-buttom">Cancelar</button>
+        <button class="add-buttom">Adicionar Bolsas</button>
       </div>
     </div>
   </div>
