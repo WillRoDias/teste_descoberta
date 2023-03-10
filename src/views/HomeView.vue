@@ -17,7 +17,7 @@ import Header from "../components/Header.vue";
 import HeaderMobile from "../components/mobile/HeaderMobile.vue";
 import Content from "../components/desktop/Content.vue";
 import SelectOffers from "../components/desktop/SelectOffers.vue";
-import { ref } from 'vue';
+import { ref } from "vue";
 
 export default {
   name: "HomeView",
@@ -31,14 +31,14 @@ export default {
     return {
       mobileView: false,
       desktopView: true,
-      selectOffers: true,
+      selectOffers: false,
     };
   },
-  methods:{
-     openPopup(param){
-      this.selectOffers = param
-     } 
-    }
+  methods: {
+    openPopup(param) {
+      this.selectOffers = param;
+    },
+  },
 };
 </script>
 

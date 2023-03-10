@@ -19,6 +19,7 @@
       @extend %display-flex-row;
       font-weight: bold;
       width: 100%;
+      margin-bottom: 20px;
 
       .filter-left {
         width: 320px;
@@ -32,6 +33,11 @@
 
           input {
             margin-right: 10px;
+            cursor: pointer;
+          }
+
+          label{
+            display: inline-block;
           }
 
           p {
@@ -50,6 +56,9 @@
 
         .range-input {
           margin-top: 20px;
+          p{
+            font-weight: lighter;
+          }
         }
       }
 
@@ -61,7 +70,8 @@
         border: solid 1px lightgray;
         border-radius: 5px;
         background-color: white;
-        font-weight: bold;
+        font-weight: lighter;
+        cursor: pointer;
       }
 
       p {
@@ -135,6 +145,34 @@
       text-align: right;
       margin-top: 20px;
       padding: 10px;
+      button{
+        padding: 13px;
+        cursor: pointer;
+      }
+      .cancel{
+        background-color: white;
+        color: $secondary-blue;
+        border: solid 1px $secondary-blue;
+        border-radius: 5px;
+        font-weight: bold;
+        margin-right: 15px;
+        transition: 0.2s;
+      }
+      .cancel:hover{
+        border: solid 1px $primary-blue;
+        color: $primary-blue;
+      }
+      .add{
+        background-color: $primary-yellow;
+        color: $black-text-color;
+        border: solid 1px $secondary-yellow;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: 0.2s;
+      }
+      .add:hover{
+        background-color: white;
+      }
     }
   }
 }

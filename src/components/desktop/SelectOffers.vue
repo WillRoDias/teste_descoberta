@@ -10,17 +10,26 @@
           <form>
             <label>
               <p>SELECIONE SUA CIDADE</p>
-              <select>
-                <option>1</option>
+              <select v-model="filterData.city">
+                <option v-for="city in uniqCities">
+                  {{ city }}
+                </option>
               </select>
             </label>
             <label>
               <p>COMO VOCÊ QUER ESTUDAR?</p>
               <div class="checkboxes">
-                <input type="checkbox" />
-                <p>Presencial</p>
-                <input type="checkbox" />
-                <p>A distância</p>
+                <label>
+                  <input
+                    type="checkbox"
+                    v-model="filterData.kindValuePresencial"
+                  />
+                  Presencial
+                </label>
+                <label
+                  ><input type="checkbox" v-model="filterData.kindValueEAD" />
+                  A distância
+                </label>
               </div>
             </label>
           </form>
@@ -30,13 +39,24 @@
             <label>
               <p>SELECIONE O CURSO DE SUA PREFERÊNCIA</p>
               <select>
-                <option>1</option>
+                <option v-for="name in uniqCourses">
+                  {{ name }}
+                </option>
               </select>
             </label>
+          </form>
+          <form>
             <label>
               <p>ATÉ QUANTO PODE PAGAR?</p>
               <div class="range-input">
-                <input type="range" />
+                <p>R$ {{ filterData.rangeValue }}</p>
+                <input
+                  type="range"
+                  v-model="filterData.rangeValue"
+                  min="100"
+                  max="10000"
+                  step="1"
+                />
               </div>
             </label>
           </form>
@@ -67,8 +87,8 @@
         </div>
       </div>
       <div class="buttons">
-        <button>Cancela</button>
-        <button>Adicionar bolsa(s)</button>
+        <button class="cancel">Cancela</button>
+        <button class="add">Adicionar bolsa(s)</button>
       </div>
     </div>
   </div>
@@ -76,17 +96,39 @@
 
 <script>
 import JsonData from "@/db.json";
+
 export default {
   name: "SelectOffers",
   data() {
     return {
       showResults: true,
       data: JsonData,
+      filterData: {
+        city: '',
+        rangeValue: 100,
+        kindValuePresencial: "",
+        kindValueEAD: "",
+      },
     };
   },
-  mounted() {
-    console.log(this.data);
-  },
+
+  computed: {
+    uniqCities() {
+      return this.data.filter((objeto, indice, self) =>
+        self.findIndex(t => t.campus.city === objeto.campus.city) === indice
+      ).map(objeto => objeto.campus.city);
+    },
+    uniqCourses() {
+      return this.data.filter((objeto, indice, self) =>
+        self.findIndex(t => t.course.name === objeto.course.name) === indice
+      ).map(objeto => objeto.course.name);
+    },
+    filterData() {
+      return this.data.filter((objeto, indice, self) =>
+        self.findIndex(t => t.campus.city === objeto.campus.city) === indice
+      ).map(objeto => objeto.campus.city);
+    },
+  }
 };
 </script>
 
