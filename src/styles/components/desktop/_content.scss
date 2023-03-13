@@ -2,6 +2,11 @@
 
 .content {
   padding: 0 10%;
+  .filter{
+    @extend %display-flex-row;
+    justify-content: flex-end;
+    width: 100%;
+  }
 }
 
 a{
@@ -9,7 +14,7 @@ a{
 }
 
 .card{
-  width: 275px;
+  min-width: 250px;
   height: 450px;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -21,6 +26,7 @@ a{
 
 .cards{
   @extend %display-flex-row;
+  flex-wrap: wrap;
 }
 
 nav {

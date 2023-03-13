@@ -1,28 +1,106 @@
 @import '@/styles/global.scss';
 
-*{
+.card {
   @extend %display-flex-column;
-}
-
-.card{
-  width: 275px;
+  width: 260px;
   height: 450px;
-  background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  padding: 30px;
-}
+  padding: 20px;
+  font-weight: bold;
 
-.ies-course-info{
-  border-bottom: solid 2px rgb(238, 238, 238);
-  p{
-    font-weight: bold;
+  .card-ies-info {
+    width: 100%;
+    border-bottom: 1px solid lightgray;
+    text-align: center;
+
+    .card-ies-logo {
+      width: 100%;
+      text-align: center;
+
+      img {
+        max-width: fit-content;
+      }
+    }
+
+    .card-course-name {
+      color: $secondary-blue;
+    }
   }
-}
 
-.course-info{
-  border-bottom: solid 2px rgb(238, 238, 238);
-}
+  .card-offer-info {
+    width: 100%;
+    border-bottom: 1px solid lightgray;
+    text-align: center;
 
-.qb-course-info{
-  border-bottom: solid 2px rgb(238, 238, 238);
+    .card-offer-info-start-date {
+      font-weight: lighter;
+    }
+  }
+
+  .card-offer-prices {
+    width: 100%;
+    text-align: center;
+
+    .card-offer-prices-full-price {
+      font-weight: lighter;
+    }
+
+    .card-offer-prices-discount {
+      @extend %display-flex-row;
+      justify-content: center;
+      text-align: center;
+
+      .card-offer-prices-discount-price {
+        color: green;
+      }
+
+      .card-offer-prices-discount-month {
+        font-weight: lighter;
+      }
+    }
+    .card-offer-prices-prices-format{
+      p{
+        margin: 0;
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .card-buttons {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+
+    button {
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    .delete {
+      background-color: white;
+      color: $secondary-blue;
+      border: solid 1px $secondary-blue;
+      border-radius: 5px;
+      font-weight: bold;
+      margin-right: 15px;
+      transition: 0.2s;
+    }
+
+    .delete:hover {
+      border: solid 1px $primary-blue;
+      color: $primary-blue;
+    }
+
+    .view {
+      background-color: $primary-yellow;
+      color: $black-text-color;
+      border: solid 1px $secondary-yellow;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+
+    .view:hover {
+      background-color: white;
+    }
+  }
 }

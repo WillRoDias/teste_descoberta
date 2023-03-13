@@ -11,7 +11,7 @@
             <label>
               <p>SELECIONE SUA CIDADE</p>
               <select v-model="filterData.city">
-                <option v-for="city in uniqCities">
+                <option v-for="city in uniqCities" :key="city">
                   {{ city }}
                 </option>
               </select>
@@ -39,7 +39,7 @@
             <label>
               <p>SELECIONE O CURSO DE SUA PREFERÊNCIA</p>
               <select>
-                <option v-for="name in uniqCourses">
+                <option v-for="name in uniqCourses" :key="name">
                   {{ name }}
                 </option>
               </select>
@@ -104,31 +104,49 @@ export default {
       showResults: true,
       data: JsonData,
       filterData: {
-        city: '',
+        city: "",
         rangeValue: 100,
         kindValuePresencial: "",
         kindValueEAD: "",
+      },
+      props: {
+        title: {
+          type: String,
+          required: false,
+        },
       },
     };
   },
 
   computed: {
     uniqCities() {
-      return this.data.filter((objeto, indice, self) =>
-        self.findIndex(t => t.campus.city === objeto.campus.city) === indice
-      ).map(objeto => objeto.campus.city);
+      return this.data
+        .filter(
+          (objeto, indice, self) =>
+            self.findIndex((t) => t.campus.city === objeto.campus.city) ===
+            indice
+        )
+        .map((objeto) => objeto.campus.city);
     },
     uniqCourses() {
-      return this.data.filter((objeto, indice, self) =>
-        self.findIndex(t => t.course.name === objeto.course.name) === indice
-      ).map(objeto => objeto.course.name);
+      return this.data
+        .filter(
+          (objeto, indice, self) =>
+            self.findIndex((t) => t.course.name === objeto.course.name) ===
+            indice
+        )
+        .map((objeto) => objeto.course.name);
     },
     filterData() {
-      return this.data.filter((objeto, indice, self) =>
-        self.findIndex(t => t.campus.city === objeto.campus.city) === indice
-      ).map(objeto => objeto.campus.city);
+      return this.data
+        .filter(
+          (objeto, indice, self) =>
+            self.findIndex((t) => t.campus.city === objeto.campus.city) ===
+            indice
+        )
+        .map((objeto) => objeto.campus.city);
     },
-  }
+  },
 };
 </script>
 

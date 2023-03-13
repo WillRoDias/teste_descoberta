@@ -5,18 +5,20 @@
       Adicione bolsas de cursos e faculdades do seu interesse e receba
       atualizações com as melhores ofertas disponíveis.
     </p>
-    <nav>
-      <a><p>Todos os semestres</p></a>
-      <a><p>2º semestre de 2019</p></a>
-      <a><p>1º semestre de 2020</p></a>
-    </nav>
+    <div class="filter">
+      <nav>
+        <a><p>Todos os semestres</p></a>
+        <a><p>2º semestre de 2019</p></a>
+        <a><p>1º semestre de 2020</p></a>
+      </nav>
+    </div>
     <div class="cards">
       <div class="card">
         <h2>Adicionar bolsa</h2>
         <p>Clique para adicionar bolsas de</p>
         <p>cursos do seu interesse</p>
       </div>
-      <OfferCard  v-for="offer in data" :key="offer" :data="offer"/>
+      <OfferCard v-for="offer in this.data" :key="offer" :data="offer" />
     </div>
   </div>
 </template>
@@ -31,6 +33,7 @@ export default {
   data() {
     return {
       showOfferCard: true,
+      showSelectOffers: false,
       data: [
         {
           full_price: 2139.64,
@@ -101,12 +104,58 @@ export default {
             city: "São Paulo",
           },
         },
+        {
+          full_price: 1461.16,
+          price_with_discount: 1241.99,
+          discount_percentage: 15.0,
+          start_date: "01/08/2019",
+          enrollment_semester: "2019.2",
+          enabled: true,
+          course: {
+            name: "Jornalismo",
+            kind: "Presencial",
+            level: "Bacharelado",
+            shift: "Noite",
+          },
+          university: {
+            name: "Anhembi Morumbi",
+            score: 4.2,
+            logo_url: "https://www.tryimg.com/u/2019/04/16/anhembi-morumbi.png",
+          },
+          campus: {
+            name: "Vila Olímpia",
+            city: "São Paulo",
+          },
+        },
+        {
+          full_price: 1745.22,
+          price_with_discount: 539.1,
+          discount_percentage: 69.11,
+          start_date: "01/08/2019",
+          enrollment_semester: "2019.2",
+          enabled: true,
+          course: {
+            name: "Engenharia Mecânica",
+            kind: "Presencial",
+            level: "Bacharelado",
+            shift: "Manhã",
+          },
+          university: {
+            name: "UNICSUL",
+            score: 3.9,
+            logo_url: "https://www.tryimg.com/u/2019/04/16/unicsul.png",
+          },
+          campus: {
+            name: "Paulista",
+            city: "São Paulo",
+          },
+        },
       ],
     };
   },
-  props:{
-    data: Object
-  }
+  props: {
+    data: Object,
+  },
 };
 </script>
 

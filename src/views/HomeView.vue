@@ -1,6 +1,5 @@
 <template>
-  <!-- <button @click="openPopup(true)">popup</button> -->
-  <SelectOffers v-if="selectOffers" />
+  <SelectOffers v-if="isModalVisible"/>
   <header>
     <Header v-if="desktopView" />
     <HeaderMobile v-if="mobileView" />
@@ -17,7 +16,6 @@ import Header from "../components/Header.vue";
 import HeaderMobile from "../components/mobile/HeaderMobile.vue";
 import Content from "../components/desktop/Content.vue";
 import SelectOffers from "../components/desktop/SelectOffers.vue";
-import { ref } from "vue";
 
 export default {
   name: "HomeView",
@@ -31,14 +29,9 @@ export default {
     return {
       mobileView: false,
       desktopView: true,
-      selectOffers: false,
+      isModalVisible: true
     };
-  },
-  methods: {
-    openPopup(param) {
-      this.selectOffers = param;
-    },
-  },
+  }
 };
 </script>
 
