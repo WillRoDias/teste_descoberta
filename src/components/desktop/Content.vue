@@ -1,4 +1,5 @@
 <template>
+  <SelectOffers v-if="isModalVisible" @close="hideSelectOffers" />
   <div class="content">
     <h1>Bolsas favoritas</h1>
     <p>
@@ -13,145 +14,43 @@
       </nav>
     </div>
     <div class="cards">
-      <div class="card">
+      <div class="card-add" @click="showSelectOffers">
         <h2>Adicionar bolsa</h2>
         <p>Clique para adicionar bolsas de</p>
         <p>cursos do seu interesse</p>
       </div>
-      <OfferCard v-for="offer in this.data" :key="offer" :data="offer" />
+      <OfferCard v-for="offer in getUserOffers()" :key="offer" :data="offer" />
     </div>
   </div>
 </template>
 
 <script>
 import OfferCard from "@/components/desktop/OfferCard.vue";
+import SelectOffers from "@/components/desktop/SelectOffers.vue";
+
 export default {
   name: "Content",
   components: {
     OfferCard,
+    SelectOffers,
   },
   data() {
     return {
+      isShowModal: false,
       showOfferCard: true,
-      showSelectOffers: false,
-      data: [
-        {
-          full_price: 2139.64,
-          price_with_discount: 706.08,
-          discount_percentage: 67.0,
-          start_date: "01/08/2019",
-          enrollment_semester: "2019.2",
-          enabled: true,
-          course: {
-            name: "Engenharia Mecânica",
-            kind: "Presencial",
-            level: "Bacharelado",
-            shift: "Noite",
-          },
-          university: {
-            name: "UNIP",
-            score: 4.5,
-            logo_url: "https://www.tryimg.com/u/2019/04/16/unip.png",
-          },
-          campus: {
-            name: "Jardim das Indústrias",
-            city: "São José dos Campos",
-          },
-        },
-        {
-          full_price: 1227.05,
-          price_with_discount: 515.36,
-          discount_percentage: 58.0,
-          start_date: "01/08/2019",
-          enrollment_semester: "2019.2",
-          enabled: true,
-          course: {
-            name: "Jornalismo",
-            kind: "Presencial",
-            level: "Bacharelado",
-            shift: "Noite",
-          },
-          university: {
-            name: "UNIP",
-            score: 4.5,
-            logo_url: "https://www.tryimg.com/u/2019/04/16/unip.png",
-          },
-          campus: {
-            name: "Água Branca",
-            city: "São Paulo",
-          },
-        },
-        {
-          full_price: 1487.31,
-          price_with_discount: 520.56,
-          discount_percentage: 65.0,
-          start_date: "01/08/2019",
-          enrollment_semester: "2019.2",
-          enabled: true,
-          course: {
-            name: "Biomedicina",
-            kind: "Presencial",
-            level: "Bacharelado",
-            shift: "Noite",
-          },
-          university: {
-            name: "UNIP",
-            score: 4.5,
-            logo_url: "https://www.tryimg.com/u/2019/04/16/unip.png",
-          },
-          campus: {
-            name: "Jaguaré",
-            city: "São Paulo",
-          },
-        },
-        {
-          full_price: 1461.16,
-          price_with_discount: 1241.99,
-          discount_percentage: 15.0,
-          start_date: "01/08/2019",
-          enrollment_semester: "2019.2",
-          enabled: true,
-          course: {
-            name: "Jornalismo",
-            kind: "Presencial",
-            level: "Bacharelado",
-            shift: "Noite",
-          },
-          university: {
-            name: "Anhembi Morumbi",
-            score: 4.2,
-            logo_url: "https://www.tryimg.com/u/2019/04/16/anhembi-morumbi.png",
-          },
-          campus: {
-            name: "Vila Olímpia",
-            city: "São Paulo",
-          },
-        },
-        {
-          full_price: 1745.22,
-          price_with_discount: 539.1,
-          discount_percentage: 69.11,
-          start_date: "01/08/2019",
-          enrollment_semester: "2019.2",
-          enabled: true,
-          course: {
-            name: "Engenharia Mecânica",
-            kind: "Presencial",
-            level: "Bacharelado",
-            shift: "Manhã",
-          },
-          university: {
-            name: "UNICSUL",
-            score: 3.9,
-            logo_url: "https://www.tryimg.com/u/2019/04/16/unicsul.png",
-          },
-          campus: {
-            name: "Paulista",
-            city: "São Paulo",
-          },
-        },
-      ],
+      isModalVisible: false,
     };
+  },
+  methods: {
+    hideSelectOffers() {
+      this.isModalVisible = false;
+    },
+    showSelectOffers() {
+      this.isModalVisible = true;
+    },
+    getUserOffers() {
+      return JSON.parse(localStorage.getItem("user-offers"));
+    },
   },
   props: {
     data: Object,

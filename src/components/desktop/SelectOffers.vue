@@ -1,5 +1,8 @@
 <template>
   <div class="background">
+    <div class="close-btn">
+      <button @click="closeModal" class="close-btn-button">X</button>
+    </div>
     <div class="container">
       <div class="heading">
         <h2>Adicionar bolsa</h2>
@@ -11,6 +14,7 @@
             <label>
               <p>SELECIONE SUA CIDADE</p>
               <select v-model="filterData.city">
+                <option />
                 <option v-for="city in uniqCities" :key="city">
                   {{ city }}
                 </option>
@@ -21,13 +25,18 @@
               <div class="checkboxes">
                 <label>
                   <input
-                    type="checkbox"
-                    v-model="filterData.kindValuePresencial"
+                    type="radio"
+                    v-model="filterData.kind"
+                    :value="'Presencial'"
                   />
                   Presencial
                 </label>
                 <label
-                  ><input type="checkbox" v-model="filterData.kindValueEAD" />
+                  ><input
+                    type="radio"
+                    v-model="filterData.kind"
+                    :value="'EaD'"
+                  />
                   A distância
                 </label>
               </div>
@@ -38,7 +47,8 @@
           <form>
             <label>
               <p>SELECIONE O CURSO DE SUA PREFERÊNCIA</p>
-              <select>
+              <select v-model="filterData.name">
+                <option />
                 <option v-for="name in uniqCourses" :key="name">
                   {{ name }}
                 </option>
@@ -68,8 +78,8 @@
           <p>Ordenar por: nome</p>
         </div>
         <div class="load-results">
-          <div class="results" v-for="offer in data" :key="offer">
-            <input type="checkbox" />
+          <div class="results" v-for="offer in filterOffers" :key="offer">
+            <input type="checkbox" :value="offer" v-model="offerSelected" />
             <div class="ies-offer-data">
               <div class="ies-logo">
                 <img :src="offer.university.logo_url" alt="" />
@@ -87,8 +97,8 @@
         </div>
       </div>
       <div class="buttons">
-        <button class="cancel">Cancela</button>
-        <button class="add">Adicionar bolsa(s)</button>
+        <button class="cancel" @click="closeModal">Cancela</button>
+        <button class="add" @click="addOffers">Adicionar bolsa(s)</button>
       </div>
     </div>
   </div>
@@ -101,21 +111,29 @@ export default {
   name: "SelectOffers",
   data() {
     return {
-      showResults: true,
       data: JsonData,
+      offerSelected: [],
       filterData: {
         city: "",
+        name: "",
         rangeValue: 100,
-        kindValuePresencial: "",
-        kindValueEAD: "",
-      },
-      props: {
-        title: {
-          type: String,
-          required: false,
-        },
+        kind: "",
       },
     };
+  },
+
+  methods: {
+    closeModal() {
+      this.$emit("close");
+    },
+    addOffers() {
+      let userOffers = localStorage.getItem("user-offers")
+        ? JSON.parse(localStorage.getItem("user-offers"))
+        : [];
+      Array.prototype.push.apply(userOffers, this.offerSelected);
+      localStorage.setItem("user-offers", JSON.stringify(userOffers));
+      this.closeModal();
+    },
   },
 
   computed: {
@@ -137,14 +155,13 @@ export default {
         )
         .map((objeto) => objeto.course.name);
     },
-    filterData() {
-      return this.data
-        .filter(
-          (objeto, indice, self) =>
-            self.findIndex((t) => t.campus.city === objeto.campus.city) ===
-            indice
-        )
-        .map((objeto) => objeto.campus.city);
+    filterOffers() {
+      return this.data.filter(
+        (offer) =>
+          offer.campus.city.includes(this.filterData.city) &&
+          offer.course.kind.includes(this.filterData.kind) &&
+          offer.course.name.includes(this.filterData.name)
+      );
     },
   },
 };

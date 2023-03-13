@@ -13,20 +13,26 @@ a{
   cursor: pointer;
 }
 
-.card{
-  min-width: 250px;
+.card-add{
+  width: 260px;
   height: 450px;
+  padding: 20px;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   @extend %display-flex-column;
   justify-content: center;
-  padding: 30px;
   margin: 20px;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
 .cards{
   @extend %display-flex-row;
   flex-wrap: wrap;
+}
+
+.card-add:hover{
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 15px;
 }
 
 nav {
