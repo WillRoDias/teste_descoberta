@@ -1,1 +1,17 @@
 @import "../global.scss";
+
+.header{
+  width: 100%;
+  height: fit-content;
+}
+
+.body{
+  width: 100%;
+  height: fit-content;
+}
+
+.footer{
+  margin-top: 100px;
+  width: 100%;
+  @extend %display-flex-column;
+}

@@ -10,6 +10,7 @@
   justify-content: center;
   margin: 20px;
   transition: 0.2s;
+  font-weight: bold;
 
   .card-ies-info {
     width: 100%;
@@ -63,8 +64,9 @@
         font-weight: lighter;
       }
     }
-    .card-offer-prices-prices-format{
-      p{
+
+    .card-offer-prices-prices-format {
+      p {
         margin: 0;
         margin-bottom: 10px;
       }
@@ -108,9 +110,18 @@
     .view:hover {
       background-color: white;
     }
+
+    .disabled {
+      border: solid 1px gray;
+      color: gray;
+      border-radius: 5px;
+      font-weight: bold;
+      margin-right: 15px;
+      cursor: default;
+    }
   }
 }
 
-.card:hover{
+.card:hover {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 15px;
 }

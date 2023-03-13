@@ -8,9 +8,9 @@
     </p>
     <div class="filter">
       <nav>
-        <a><p>Todos os semestres</p></a>
-        <a><p>2º semestre de 2019</p></a>
-        <a><p>1º semestre de 2020</p></a>
+        <a @click="selectNoneSemester"><p>Todos os semestres</p></a>
+        <a @click="selectSecondSemester"><p>2º semestre de 2019</p></a>
+        <a @click="selectFirstSemester"><p>1º semestre de 2020</p></a>
       </nav>
     </div>
     <div class="cards">
@@ -19,7 +19,7 @@
         <p>Clique para adicionar bolsas de</p>
         <p>cursos do seu interesse</p>
       </div>
-      <OfferCard v-for="offer in getUserOffers()" :key="offer" :data="offer" />
+      <OfferCard v-for="offer in filterOffers" :key="offer" :data="offer" />
     </div>
   </div>
 </template>
@@ -39,6 +39,8 @@ export default {
       isShowModal: false,
       showOfferCard: true,
       isModalVisible: false,
+      userOffers: [],
+      offersFilter: "",
     };
   },
   methods: {
@@ -48,9 +50,29 @@ export default {
     showSelectOffers() {
       this.isModalVisible = true;
     },
-    getUserOffers() {
-      return JSON.parse(localStorage.getItem("user-offers"));
+    selectSecondSemester() {
+      this.offersFilter = "2019.2";
     },
+    selectFirstSemester() {
+      this.offersFilter = "2020.1";
+    },
+    selectNoneSemester() {
+      this.offersFilter = "";
+    },
+  },
+  computed: {
+    filterOffers() {
+      if (this.offersFilter === "") {
+        return this.userOffers;
+      } else {
+        return this.userOffers.filter((offer) =>
+          offer.enrollment_semester.includes(this.offersFilter)
+        );
+      }
+    },
+  },
+  mounted() {
+    this.userOffers = JSON.parse(localStorage.getItem("user-offers"));
   },
   props: {
     data: Object,

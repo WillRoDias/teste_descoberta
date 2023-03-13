@@ -1,0 +1,55 @@
+@import '@/styles/global.scss';
+
+p{
+  font-weight: bold;
+  color: white;
+}
+
+.footer {
+  font-weight: bold;
+  
+
+  .footer-primary {
+    @extend %display-flex-row;
+    justify-content: center;
+    background-color: $secondary-blue;
+    width: 100%;
+    height: 130px;
+    nav {
+      @extend %display-flex-row;
+      justify-content: space-between;
+      width: 100%;
+      height: 100%;
+      margin: 0 80px;
+      button{
+        height: 100%;
+        padding: 0 20px;
+        margin: 0 10px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        transition: 0.2s;
+        text-align: left;
+        font-size: larger;
+      }
+      button:hover{
+        background-color: $primary-blue;
+      }
+    }
+  }
+
+  .footer-secondary {
+    display: flex;
+    width: 100%;
+    height: 180px;
+    background-color: $primary-blue;
+    align-items: center;
+
+    .paragraph {
+      width: 100%;
+      p {
+        text-align: center;
+      }
+    }
+  }
+}

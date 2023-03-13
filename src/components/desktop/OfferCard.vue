@@ -30,7 +30,8 @@
     </div>
     <div class="card-buttons">
       <button class="delete">Excluir</button>
-      <button class="view">Ver Oferta</button>
+      <button class="view" v-if="data.enabled">Ver Oferta</button>
+      <button class="disabled" v-if="!data.enabled">Indisponível</button>
     </div>
   </div>
 </template>
