@@ -1,15 +1,15 @@
 <template>
   <header class="header">
-    <Header v-if="desktopView" />
-    <HeaderMobile v-if="mobileView" />
+    <Header v-if="!isMobile"/>
+    <HeaderMobile v-if="isMobile"/>
   </header>
   <body class="body">
-    <Content v-if="desktopView" />
-    <ContentMobile v-if="mobileView" />
+    <Content v-if="!isMobile"/>
+    <ContentMobile v-if="isMobile"/>
   </body>
   <footer class="footer">
-    <Footer v-if="desktopView"/>
-    <FooterMobile v-if="mobileView"/>
+    <Footer v-if="!isMobile"/>
+    <FooterMobile v-if="isMobile"/>
   </footer>
 </template>
 
@@ -25,19 +25,26 @@ import FooterMobile from "../components/mobile/FooterMobile.vue";
 
 export default {
   name: "HomeView",
+  data() {
+    return {
+      isMobile: true
+    }
+  },
+  created() {
+    if(screen.width <= 760){
+      this.isMobile = true
+    }
+    else {
+      this.isMobile = false
+    }
+  },
   components: {
     Header,
     HeaderMobile,
     Content,
     ContentMobile,
     Footer,
-    FooterMobile
-  },
-  data() {
-    return {
-      mobileView: true,
-      desktopView: false,
-    };
+    FooterMobile,
   },
 };
 </script>
