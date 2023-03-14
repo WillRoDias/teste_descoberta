@@ -3,7 +3,7 @@
     <div class="footer-primary">
       <nav>
         <button>
-          
+          <font-awesome-icon icon="fas-phone" />
           <p class="primary">0800 123 2222</p>
           <p class="secondary">Seg - Sex 8h-22h</p>
         </button>

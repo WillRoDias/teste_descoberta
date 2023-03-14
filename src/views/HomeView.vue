@@ -4,10 +4,11 @@
     <HeaderMobile v-if="mobileView" />
   </header>
   <body class="body">
-    <Content />
+    <Content v-if="desktopView" />
+    <ContentMobile v-if="mobileView" />
   </body>
   <footer class="footer">
-    <Footer />
+    <!-- <Footer /> -->
   </footer>
 </template>
 
@@ -17,6 +18,7 @@
 import Header from "../components/Header.vue";
 import HeaderMobile from "../components/mobile/HeaderMobile.vue";
 import Content from "../components/desktop/Content.vue";
+import ContentMobile from "../components/mobile/ContentMobile.vue";
 import Footer from "../components/desktop/Footer.vue";
 
 export default {
@@ -25,12 +27,13 @@ export default {
     Header,
     HeaderMobile,
     Content,
-    Footer
+    ContentMobile,
+    Footer,
   },
   data() {
     return {
-      mobileView: false,
-      desktopView: true,
+      mobileView: true,
+      desktopView: false,
     };
   },
 };
