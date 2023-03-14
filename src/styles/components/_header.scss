@@ -15,6 +15,12 @@ p {
 }
 
 .nav-primary {
+  @extend %display-flex-row;
+  justify-content: space-between;
+  .nav-one{
+    @extend %display-flex-row;
+    flex: 1 ;
+  }
   a {
     p {
       color: $secondary-blue;
@@ -27,14 +33,24 @@ p {
       color: $primary-blue;
     }
   }
+  .about-button{
+    @extend %display-flex-row;
+  }
+
+  .contact-button{
+    @extend %display-flex-row;
+  }
+
+  .profile-button{
+    @extend %display-flex-row;
+  }
 
   .about {
     border-right: solid rgb(238, 238, 238) 3px;
   }
 
   .logo {
-    flex: 2;
-    text-align: center;
+    flex: 1;
     cursor: pointer;
 
     svg {
@@ -43,7 +59,7 @@ p {
   }
 
   .user-name {
-    flex: 1;
+    flex: 2;
     text-align: right;
   }
 }

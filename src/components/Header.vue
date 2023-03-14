@@ -1,11 +1,22 @@
 <template>
   <nav class="nav-primary">
-    <font-awesome-icon icon="fa-solid fa-circle-info" />
-    <a class="about"> <p>Como funciona</p></a>
-    <a class="contact">
-      <p>0800 123 2222</p>
-      <p>Envie mensagem ou ligue</p>
-    </a>
+    <div class="nav-one">
+      <div class="about-button">
+        <img
+          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAACO0lEQVR4nO1XzU4UQRCuA3jRAF7hqkjiQRR8DZGX8AUQdrqySR92UclWzWQJFxNQ38ETLJrwEixwQuUKCa4/J8VUdc8uxjjTM44JJHxJJ5ts/XxdVV1VA3CFS4V6cgeQa4C8DchdQP7iTxcMdcDQEkQ0Wb1jjGfB8DtAPgs82xDRzL87fvJyGJDXAOmnGjZ0DEjrENEjjcZC67oejUw8B4Y3nIyQUJ1VsHaonPPo+U1Aeu8dfwWkBtj2SK6eyBhuAtK3fjRsMlb85saH3NCRpqAoanwPDB86G7wD1l4LV0YJuyp+hMWVcSgL0UX+5C/SDnQez2r+JOw1ul/a+cDeA02H4R/6OxcmrXZq5Bv3VZ8vt+yj0Al552daySEFF0qg9mIUkE9Utr5y+++ChiJ/+3WoGkivPOHFLAIdJxTPVU+A5z2BrQwCfKBCEd8KNBqWgt/Tu5dBgHoqZNduVE5AbDoCvSyDn/8fgfaIJ3CaZXDfpSBwohUhYGjKy3erK0IsQKBfhLSZRWDJt+CN6gnQG2974QI3IoHbdoRpE6oiYOhZfvhTyCajy4TM85DhEbRNfXfDKJkOVOJVfzsZpRPlnfPEuXGchCtaOzRIBR1B1HpY3HkyDUgf+lOw8Gpmk7E+CbdeLWsx5UFkJOcS9rT3F17JUghr2WQ0f2rsBAy/BkOPtbFIx5Tjmsy8/pdWu+hI2EsvpedRj+8C8tvgtVwbWgUF/AfkDcs8l7C6j5GeP7v6xCJ6GjxJr3BR8Avlba8u187GPAAAAABJRU5ErkJggg=="
+        />
+        <a class="about"> <p>Como funciona</p></a>
+      </div>
+      <div class="contact-button">
+        <img
+          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAADL0lEQVR4nO1WS0gVURieMgl6CkVi1JwzN9GUikBoEZH0gKht3TLn/+dCoS0iKnoSRIuIbCG5rYhcxo2iyCJCsKic/4wDtqlIsUUQFQY9jZTMODPnjvdq3plRN4EfDAwz/+P7n+do2hSmEAO6a5ZwsvZxgS2c4BUT8I0T9DGB3UzgQ0Z4SCcwtMnGYoELGGEDI/jFBQ7lfQgGmcC07tQmJsW5TrCRE3wKjBPc1Qn2JhxYUebuXphwk/OZjRW6AFM6ZgQDviz+0G3YPiHnnBCzDLYm2mtXhuksda1lnOCm0vnDCY6Oz7mD1YywXxpiAi9oQ2emxyR/TGZMkoidCdaZKmICP6q0N8Yln0NClSPhoh5DEc77kcMTLZ0s8D6mkwXSICPzVJxscIJbni2C5kgK5U/3zJWjJVNndFhrAkMCT2c6ndm4LSoB2ROqj34zO8XDGQtzZxB9biTvs8atRYsBOR2enm0eDBcmaFa1H+7eIW3aiB3wU2urnhGVgOFYoMrwIAqBx1JYF+am7O9coB2UgOBwVOeeTRsr1DR1hwsL7FJ1rsgh4OCurAxsiUWgM1WUmYZQYU7Y4wk7ZvlocnBbZeBtKZlL4qxylYGv4WwJhO/E2jDyXymZ8+QhpLLwIpukfGcCT0pnI/UM21rl68DLCATwihI+MeaqFfhGNWqflDMElgWlE/jd25xZTcoF1ql/d8IJ2FDjZwCdvMeyADffiSj3yTABuKf+1YUSKH4OsxnhF1/BWj+WXJVbXyijD07KrIcJuBEEJFKr/VMU+w27pjiUgAQjPJs5AbUQlHYdmGmQtYMJvMQIrnOBqSD96WQBI3ik0t+kRQUnOB5rf49tp1GVs1feHWIoYqtiXTsuz17k2KCCGPjXRI2JErd+lrd2CQYTz2ARc1PLdYL9nPBavp7IQHdgbWZrenV3LIhFnjnW1owyF/huVIMRdMh5l1c1n5xZaTi4WTVk+3Aj4oeEjeu0uOACLuY6xF7vriewiRN8jnAp7eMCz8mlFdt5sAkJ7jOBR+QIZV8+5IgaApOM4LIXLWEPI3jtH2BwVU5DZVtyjjYRVLn1hRMyMIX/DX8BSs0/P82KtGAAAAAASUVORK5CYII="
+        />
+        <a class="contact">
+          <p>0800 123 2222</p>
+          <p>Envie mensagem ou ligue</p>
+        </a>
+      </div>
+    </div>
     <div class="logo">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="37 125 885 307.4">
         <circle fill="#FFF" cx="191.9" cy="277.2" r="131.4" />
@@ -27,7 +38,12 @@
         </g>
       </svg>
     </div>
-    <a class="user-name"><p>Nome Sobrenome</p></a>
+    <div class="profile-button">
+      <img
+        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABKUlEQVR4nO1TsUoDQRB92ljZKKRRO7Ww9xfS2fkblgk3o3CWhpsJiP5EOFIZQcSfSHON2FkqaOy0ONnZlSDxQuRWbO7Bg2Pu7Xszs3dAgyjonm2CNQfrJHCIk95OPHOSZ7CW3+hrG/UD2Dp3pldm6Eg68jUZxAiYhIBpt8eyFWov9QNIXs3MrepPAliHfuc6shC7cLkOAXn9gER2wfL04yUnuo0oYHe5MrB1+ZXl8cwbVCJNl5Fk+yA9BesdSAqQvAUWVmNJTeO0C+PofAUkXZA8znw5VfTajp2dizRrgXU8PSwPYL0E9w9A2R46vVWje3Y1e2ear7CxeVSC9TZ0VCDptxcbuVwCZYdguQ8/5E21lvTDRKmu4bdILtbD1O/zJiij8P8CGmAWnx8PDGZ288uMAAAAAElFTkSuQmCC"
+      />
+      <a class="user-name"><p>Nome Sobrenome</p></a>
+    </div>
   </nav>
   <nav class="nav-secondary">
     <a><p>Minha conta</p></a>
