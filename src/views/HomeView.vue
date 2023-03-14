@@ -8,7 +8,8 @@
     <ContentMobile v-if="mobileView" />
   </body>
   <footer class="footer">
-    <!-- <Footer /> -->
+    <Footer v-if="desktopView"/>
+    <FooterMobile v-if="mobileView"/>
   </footer>
 </template>
 
@@ -20,6 +21,7 @@ import HeaderMobile from "../components/mobile/HeaderMobile.vue";
 import Content from "../components/desktop/Content.vue";
 import ContentMobile from "../components/mobile/ContentMobile.vue";
 import Footer from "../components/desktop/Footer.vue";
+import FooterMobile from "../components/mobile/FooterMobile.vue";
 
 export default {
   name: "HomeView",
@@ -29,6 +31,7 @@ export default {
     Content,
     ContentMobile,
     Footer,
+    FooterMobile
   },
   data() {
     return {

@@ -51,6 +51,8 @@ p {
 }
 
 .nav-secondary {
+  @extend %display-flex-row;
+  justify-content: space-between;
   background-color: $primary-blue;
 
   a {

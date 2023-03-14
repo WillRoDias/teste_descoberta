@@ -1,6 +1,6 @@
 @import '@/styles/global.scss';
 
-.select-ofrs-bg{
+.select-ofrs-bg {
   @extend %display-flex-column;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.6);
@@ -8,15 +8,35 @@
   width: 100%;
   height: 100%;
   top: 0;
-  .select-ofrs-bg-cont{
+
+  .close-modal{
+    width: 100%;
+    text-align: right;
+    padding: 10px;
+    .close-modal-btn{
+      font-weight: bolder;
+      font-size: larger;
+      background: none;
+      border: none;
+      color: white;
+      transition: 0.2s
+    }
+    .close-modal-btn:hover{
+      color: red;
+    }
+  }
+
+  .select-ofrs-bg-cont {
     background-color: white;
     width: 100%;
     height: fit-content;
     overflow: auto;
-    .select-ofrs-bg-cont-inner{
+
+    .select-ofrs-bg-cont-inner {
       padding: 20px;
-      .select-ofrs-bg-cont-inner-form{
-        select{
+
+      .select-ofrs-bg-cont-inner-form {
+        select {
           width: 100%;
           height: 50px;
           font-size: large;
@@ -25,37 +45,113 @@
           background-color: white;
           border: 1px solid grey;
         }
-        .select-ofrs-bg-cont-inner-form-radio-inputs{
-          label{
+
+        .select-ofrs-bg-cont-inner-form-radio-inputs {
+          label {
             @extend %display-flex-row;
-            input{
+
+            input {
               margin-right: 10px;
             }
           }
         }
-        .select-ofrs-bg-cont-inner-form-range{
-          input{
+
+        .select-ofrs-bg-cont-inner-form-range {
+          input {
             width: 100%;
           }
         }
       }
-      .divider{
+
+      .divider {
         border-top: 1px solid gray;
       }
-      .select-ofrs-bg-cont-inner-results-loader-each{
+
+      .select-ofrs-bg-cont-inner-results-loader-each {
         @extend %display-flex-row;
         max-width: 100%;
         height: fit-content;
-        .ies-logo{
+        border-bottom: 1px solid grey;
+
+        .ies-logo {
           height: 70%;
           width: 125px;
-          img{
+
+          img {
             max-height: 70%;
             max-width: 70%;
           }
         }
-        .offer-data{
+
+        .offer-data {
           flex: 1;
+          .offer-data-course{
+            .course-name{
+              color: $secondary-blue;
+            }
+          }
+          .offer-data-money{
+            @extend %display-flex-column;
+            justify-content: left;
+            .offer-data-percentage{
+              width: 100%;
+              display: inline-flex;
+            }
+            .offer-data-value{
+              width: 100%;
+              display: inline-flex;
+              margin-bottom: 10px;
+              p{
+                margin: 0;
+              }
+              b{
+                padding: 0;
+              }
+            }
+            .p-green{
+              color: green;
+            }
+          }
+        }
+      }
+      .select-ofrs-bg-cont-inner-btn {
+        @extend %display-flex-row;
+        justify-content: space-between;
+        max-width: 100%;
+        margin-top: 20px;
+        padding: 10px;
+  
+        button {
+          padding: 20px 30px;
+          cursor: pointer;
+        }
+  
+        .cancel {
+          background-color: white;
+          color: $secondary-blue;
+          border: solid 1px $secondary-blue;
+          border-radius: 5px;
+          font-weight: bold;
+          margin-right: 15px;
+          transition: 0.2s;
+        }
+  
+        .cancel:hover {
+          border: solid 1px $primary-blue;
+          color: $primary-blue;
+        }
+  
+        .add {
+          background-color: $primary-yellow;
+          color: $black-text-color;
+          border: solid 1px $secondary-yellow;
+          border-radius: 5px;
+          font-weight: bold;
+          transition: 0.2s;
+        }
+  
+        .add:hover {
+          background-color: white;
         }
       }
     }

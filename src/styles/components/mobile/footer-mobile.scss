@@ -1,0 +1,41 @@
+@import '@/styles/global.scss';
+
+.footer-main {
+  width: 100%;
+  background-color: $primary-blue;
+  .buttons{
+    button{
+      background-color: $secondary-blue;
+      border: none;
+      color: white;
+    }
+    .first-button{
+      max-width: 100%;
+      .first{
+        width: 100%;
+        text-align: left;
+        padding: 0 80px;
+      }
+    }
+    .center-buttons{
+      @extend %display-flex-row;
+      max-width: 100%;
+      button{
+        width: 100%;
+        height: 80px;
+        transition: 0.2s;
+      }
+      button:hover{
+        background-color: $primary-blue;
+      }
+    }
+    .last-button{
+      width: 100%;
+      button{
+        width: 100%;
+        height: 80px;
+        background: none;
+      }
+    }
+  }
+}

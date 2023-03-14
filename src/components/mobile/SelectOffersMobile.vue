@@ -1,5 +1,8 @@
 <template>
   <div class="select-ofrs-bg">
+    <div class="close-modal">
+      <button class="close-modal-btn" @click="closeModal" >X</button>
+    </div>
     <div class="select-ofrs-bg-cont">
       <div class="select-ofrs-bg-cont-inner">
         <div class="select-ofrs-bg-cont-inner-heading">
@@ -11,9 +14,10 @@
             <div class="select-ofrs-bg-cont-inner-form-fir-select">
               <label>
                 <p><b>SELECIONE SUA CIDADE</b></p>
-                <select>
-                  <option>
-                    <p>São Paulo</p>
+                <select v-model="filterData.city">
+                  <option />
+                  <option v-for="city in uniqCities" :key="city">
+                    {{ city }}
                   </option>
                 </select>
               </label>
@@ -21,9 +25,10 @@
             <div class="select-ofrs-bg-cont-inner-form-sec-select">
               <label>
                 <p><b>SELECIONE O CURSO DE SUA PREFERÊNCIA</b></p>
-                <select>
-                  <option>
-                    <p>Estética e Cosmética</p>
+                <select v-model="filterData.name">
+                  <option />
+                  <option v-for="name in uniqCourses" :key="name">
+                    {{ name }}
                   </option>
                 </select>
               </label>
@@ -33,9 +38,17 @@
                 <p><b>COMO VOCÊ QUER ESTUDAR?</b></p>
                 <div class="select-ofrs-bg-cont-inner-form-radio-inputs">
                   <label>
-                    <input type="radio" />
+                    <input
+                      type="radio"
+                      v-model="filterData.kind"
+                      :value="'Presencial'"
+                    />
                     <p>Presencial</p>
-                    <input type="radio" />
+                    <input
+                      type="radio"
+                      v-model="filterData.kind"
+                      :value="'EaD'"
+                    />
                     <p>A distância</p>
                   </label>
                 </div>
@@ -45,7 +58,13 @@
               <label>
                 <p><b>ATÉ QUANTO PODE PAGAR?</b></p>
                 <p>R$ 100,00</p>
-                <input type="range" min="100" max="10000" />
+                <input
+                  type="range"
+                  v-model="filterData.rangeValue"
+                  min="100"
+                  max="10000"
+                  step="1"
+                />
               </label>
             </div>
           </form>
@@ -59,27 +78,43 @@
           <div class="select-ofrs-bg-cont-inner-results-loader">
             <div
               class="select-ofrs-bg-cont-inner-results-loader-each"
-              v-for="offer in data"
+              v-for="offer in filterOffers"
               :key="offer"
             >
               <form>
-                <input type="checkbox" />
+                <input type="checkbox" :value="offer" v-model="offerSelected" />
               </form>
               <div class="ies-logo">
                 <img :src="offer.university.logo_url" />
               </div>
               <div class="offer-data">
                 <div class="offer-data-course">
-                  <p><b>{{offer.course.name}}</b></p>
-                  <p>{{offer.course.level}}</p>
+                  <p class="course-name">
+                    <b>{{ offer.course.name }}</b>
+                  </p>
+                  <p>{{ offer.course.level }}</p>
                 </div>
                 <div class="offer-data-money">
-                  <p>Bolsa de <b>{{offer.discount_percentage}}</b></p>
-                  <p><b>R$ {{offer.price_with_discount}}</b></p>
+                  <div class="offer-data-percentage">
+                    <p>Bolsa de:</p>
+                    <p class="p-green">
+                      <b>{{ offer.discount_percentage }}%</b>
+                    </p>
+                  </div>
+                  <div class="offer-data-value">
+                    <p class="p-green">
+                      <b>R${{ offer.price_with_discount }}</b>
+                    </p>
+                    <p>/mês</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+        <div class="select-ofrs-bg-cont-inner-btn">
+          <button class="cancel" @click="closeModal">Cancelar</button>
+          <button class="add" @click="addOffers">Adicionar bolsas</button>
         </div>
       </div>
     </div>
@@ -87,105 +122,62 @@
 </template>
 
 <script>
+import JsonData from "@/db.json";
+
 export default {
   name: "SelectOffersMobile",
   data() {
     return {
-      data: [
-        {
-          full_price: 1498.0,
-          price_with_discount: 1273.3,
-          discount_percentage: 15.0,
-          start_date: "01/02/2020",
-          enrollment_semester: "2020.1",
-          enabled: false,
-          course: {
-            name: "Biomedicina",
-            kind: "Presencial",
-            level: "Bacharelado",
-            shift: "Manhã",
-          },
-          university: {
-            name: "Anhembi Morumbi",
-            score: 4.2,
-            logo_url: "https://www.tryimg.com/u/2019/04/16/anhembi-morumbi.png",
-          },
-          campus: {
-            name: "Vila Olímpia",
-            city: "São Paulo",
-          },
-        },
-        {
-          full_price: 1745.22,
-          price_with_discount: 539.1,
-          discount_percentage: 69.11,
-          start_date: "01/08/2019",
-          enrollment_semester: "2019.2",
-          enabled: true,
-          course: {
-            name: "Engenharia Mecânica",
-            kind: "Presencial",
-            level: "Bacharelado",
-            shift: "Manhã",
-          },
-          university: {
-            name: "UNICSUL",
-            score: 3.9,
-            logo_url: "https://www.tryimg.com/u/2019/04/16/unicsul.png",
-          },
-          campus: {
-            name: "Paulista",
-            city: "São Paulo",
-          },
-        },
-        {
-          full_price: 428.43,
-          price_with_discount: 278.48,
-          discount_percentage: 35.0,
-          start_date: "01/08/2019",
-          enrollment_semester: "2019.2",
-          enabled: true,
-          course: {
-            name: "Administração",
-            kind: "EaD",
-            level: "Bacharelado",
-            shift: "Virtual",
-          },
-          university: {
-            name: "Estácio",
-            score: 4.1,
-            logo_url: "https://www.tryimg.com/u/2019/04/16/estacio.png",
-          },
-          campus: {
-            name: "Centro",
-            city: "São José dos Campos",
-          },
-        },
-        {
-          full_price: 519.71,
-          price_with_discount: 222.23,
-          discount_percentage: 57.24,
-          start_date: "01/08/2019",
-          enrollment_semester: "2019.2",
-          enabled: true,
-          course: {
-            name: "História",
-            kind: "EaD",
-            level: "Licenciatura",
-            shift: "Virtual",
-          },
-          university: {
-            name: "Unopar",
-            score: 4.0,
-            logo_url: "https://www.tryimg.com/u/2019/04/16/unopar.png",
-          },
-          campus: {
-            name: "São José dos Campos",
-            city: "São José dos Campos",
-          },
-        },
-      ],
+      offerSelected: [],
+      filterData: {
+        city: "",
+        name: "",
+        rangeValue: 100,
+        kind: "",
+      },
+      data: JsonData,
     };
+  },
+  methods: {
+    closeModal() {
+      this.$emit("close");
+    },
+    addOffers() {
+      let userOffers = localStorage.getItem("user-offers")
+        ? JSON.parse(localStorage.getItem("user-offers"))
+        : [];
+      Array.prototype.push.apply(userOffers, this.offerSelected);
+      localStorage.setItem("user-offers", JSON.stringify(userOffers));
+      this.closeModal();
+    },
+  },
+  computed: {
+    uniqCities() {
+      return this.data
+        .filter(
+          (objeto, indice, self) =>
+            self.findIndex((t) => t.campus.city === objeto.campus.city) ===
+            indice
+        )
+        .map((objeto) => objeto.campus.city);
+    },
+    uniqCourses() {
+      return this.data
+        .filter(
+          (objeto, indice, self) =>
+            self.findIndex((t) => t.course.name === objeto.course.name) ===
+            indice
+        )
+        .map((objeto) => objeto.course.name);
+    },
+    filterOffers() {
+      return this.data.filter(
+        (offer) =>
+          offer.campus.city.includes(this.filterData.city) &&
+          offer.course.kind.includes(this.filterData.kind) &&
+          offer.course.name.includes(this.filterData.name)
+      );
+    },
   },
 };
 </script>

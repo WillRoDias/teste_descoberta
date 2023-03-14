@@ -11,11 +11,17 @@
     <div class="mobile-content-filter">
       <nav>
         <ul>
-          <li><button>Todos os semestres</button></li>
+          <li>
+            <button @click="selectNoneSemester">Todos os semestres</button>
+          </li>
           <div class="divider"></div>
-          <li><button>2º semestre de 2019</button></li>
+          <li>
+            <button @click="selectSecondSemester">2º semestre de 2019</button>
+          </li>
           <div class="divider"></div>
-          <li><button>1º semestre de 2020</button></li>
+          <li>
+            <button @click="selectFirstSemester">1º semestre de 2020</button>
+          </li>
         </ul>
       </nav>
     </div>
@@ -26,7 +32,7 @@
         <p>cursos do seu interesse</p>
       </div>
       <div class="mobile-content-cards-offers">
-        <OfferCardMobile v-for="offer in data" :key="offer" :data="offer" />
+        <OfferCardMobile v-for="offer in filterOffers" :key="offer" :data="offer" />
       </div>
     </div>
   </div>
@@ -48,38 +54,41 @@ export default {
   data() {
     return {
       isModalVisible: false,
-      data: [
-        {
-          full_price: 2139.64,
-          price_with_discount: 706.08,
-          discount_percentage: 67.0,
-          start_date: "01/08/2019",
-          enrollment_semester: "2019.2",
-          enabled: true,
-          course: {
-            name: "Engenharia Mecânica",
-            kind: "Presencial",
-            level: "Bacharelado",
-            shift: "Noite",
-          },
-          university: {
-            name: "UNIP",
-            score: 4.5,
-            logo_url: "https://www.tryimg.com/u/2019/04/16/unip.png",
-          },
-          campus: {
-            name: "Jardim das Indústrias",
-            city: "São José dos Campos",
-          },
-        },
-      ],
+      offersFilter: "",
+      userOffers: [],
     };
   },
+  mounted() {
+    this.userOffers = JSON.parse(localStorage.getItem("user-offers"));
+  },
+  computed: {
+    filterOffers() {
+      if (this.offersFilter === "") {
+        return this.userOffers;
+      } else {
+        return this.userOffers.filter((offer) =>
+          offer.enrollment_semester.includes(this.offersFilter)
+        );
+      }
+    },
+  },
   methods: {
-    showSelectOffersMobile(){
-      this.isModalVisible = true
-    }
-  }
+    showSelectOffersMobile() {
+      this.isModalVisible = true;
+    },
+    hideSelectOffers() {
+      this.isModalVisible = false;
+    },
+    selectNoneSemester() {
+      this.offersFilter = "";
+    },
+    selectSecondSemester() {
+      this.offersFilter = "2019.2";
+    },
+    selectFirstSemester() {
+      this.offersFilter = "2020.1";
+    },
+  },
 };
 </script>
 

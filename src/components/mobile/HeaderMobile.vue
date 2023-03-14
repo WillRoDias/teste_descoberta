@@ -28,8 +28,7 @@
   </div>
   <nav class="nav-secondary">
     <a><p>Minha conta</p></a>
-    <a><p>Pré-matrículas</p></a>
-    <a><p>Bolsas favoritas</p></a>
+    <a><p>Menu</p></a>
   </nav>
 </template>
 
