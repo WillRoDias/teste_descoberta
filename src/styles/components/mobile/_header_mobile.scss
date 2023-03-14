@@ -14,41 +14,55 @@ p {
   font-weight: bold;
 }
 
-.content{
+.content {
   padding: 15px;
+
+  .nav-primary {
+    a {
+      p {
+        color: $secondary-blue;
+      }
+    }
+
+    a:hover {
+      p {
+        color: $primary-blue;
+      }
+    }
+
+
+    .help-button {
+      border-right: solid lightgrey 2px;
+      @extend %display-flex-column;
+      p{
+        margin: 0;
+      }
+    }
+
+    .logo {
+      flex: 2;
+      text-align: center;
+      cursor: pointer;
+
+      svg {
+        width: 125px;
+      }
+    }
+
+    .account-button {
+      border-left: solid lightgrey 2px;
+      @extend %display-flex-column;
+      p{
+        margin: 0;
+      }
+      .user-name {
+        text-align: right;
+
+      }
+    }
+  }
 }
-.nav-primary {
-  a {
-    p {
-      color: $secondary-blue;
-    }
-  }
 
-  a:hover {
-    p {
-      color: $primary-blue;
-    }
-  }
-
-  .about {
-    border-right: solid rgb(238, 238, 238) 2px;
-  }
-
-  .logo {
-    flex: 2;
-    text-align: center;
-    cursor: pointer;
-
-    svg {
-      width: 125px;
-    }
-  }
-
-  .user-name {
-    text-align: right;
-    border-left: solid lightgrey 2px;
-  }
-}
 
 .nav-secondary {
   @extend %display-flex-row;
