@@ -34,7 +34,13 @@
       </div>
       <div class="last-button">
         <button class="fiveth">
-          <p class="secondary">Feito com amor pela Quero Educação</p>
+          <p class="secondary">
+            Feito com
+            <img
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAACXBIWXMAAAsTAAALEwEAmpwYAAABC0lEQVR4nO3SPytGURzA8fuM3oXJ5hmsTDb19HgoUQZ/Il6CZzHxAhhMkl3ZrEyMMimDF2CwEKL00c0pN12d8+RepZ5v3U7d8z2/b6dOlvX5d2Ag/+oY3MAarn3yjkvMhP1pXOAVbzjHVK+RAzyiiyZGsBn+5QMfsIFhjGIbz9hKDcziKR9cstfEWb6W7I2Fm42nRE6xk3ztAtjDURYDd5iLiiWgg5sU8RarUbEEzOMqRdzHcVQsASfYTRGHwutZicoF8tuH1zeYpYAWXrCc6C8Ev5UUKBycCAfXI95i8Do9BVJDWPpVIBZSVeCnkK/AZCWBQqgdBh+GtV1p4FvovrZAIdSoNdAn+ws+AG5wYhrf1d9qAAAAAElFTkSuQmCC"
+            />
+            pela Quero Educação
+          </p>
         </button>
       </div>
     </div>

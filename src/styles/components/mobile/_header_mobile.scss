@@ -15,9 +15,10 @@ p {
 }
 
 .content {
-  padding: 15px;
+  padding: 10px;
 
   .nav-primary {
+    height: 50px;
     a {
       p {
         color: $secondary-blue;
@@ -52,8 +53,9 @@ p {
     .account-button {
       border-left: solid lightgrey 2px;
       @extend %display-flex-column;
+      height: 100%;
       p{
-        margin: 0;
+        margin-top: 7px;
       }
       .user-name {
         text-align: right;

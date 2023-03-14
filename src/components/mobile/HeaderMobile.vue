@@ -3,7 +3,7 @@
     <nav class="nav-primary">
       <div class="help-button">
         <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAACO0lEQVR4nO1XzU4UQRCuA3jRAF7hqkjiQRR8DZGX8AUQdrqySR92UclWzWQJFxNQ38ETLJrwEixwQuUKCa4/J8VUdc8uxjjTM44JJHxJJ5ts/XxdVV1VA3CFS4V6cgeQa4C8DchdQP7iTxcMdcDQEkQ0Wb1jjGfB8DtAPgs82xDRzL87fvJyGJDXAOmnGjZ0DEjrENEjjcZC67oejUw8B4Y3nIyQUJ1VsHaonPPo+U1Aeu8dfwWkBtj2SK6eyBhuAtK3fjRsMlb85saH3NCRpqAoanwPDB86G7wD1l4LV0YJuyp+hMWVcSgL0UX+5C/SDnQez2r+JOw1ul/a+cDeA02H4R/6OxcmrXZq5Bv3VZ8vt+yj0Al552daySEFF0qg9mIUkE9Utr5y+++ChiJ/+3WoGkivPOHFLAIdJxTPVU+A5z2BrQwCfKBCEd8KNBqWgt/Tu5dBgHoqZNduVE5AbDoCvSyDn/8fgfaIJ3CaZXDfpSBwohUhYGjKy3erK0IsQKBfhLSZRWDJt+CN6gnQG2974QI3IoHbdoRpE6oiYOhZfvhTyCajy4TM85DhEbRNfXfDKJkOVOJVfzsZpRPlnfPEuXGchCtaOzRIBR1B1HpY3HkyDUgf+lOw8Gpmk7E+CbdeLWsx5UFkJOcS9rT3F17JUghr2WQ0f2rsBAy/BkOPtbFIx5Tjmsy8/pdWu+hI2EsvpedRj+8C8tvgtVwbWgUF/AfkDcs8l7C6j5GeP7v6xCJ6GjxJr3BR8Avlba8u187GPAAAAABJRU5ErkJggg==">
-      <a class="about"><p>ajuda</p></a>
+      <a class="about"><p>Ajuda</p></a>
       </div>
       <div class="logo">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="37 125 885 307.4">
@@ -28,7 +28,7 @@
       </div>
       <div class="account-button">
         <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABKUlEQVR4nO1TsUoDQRB92ljZKKRRO7Ww9xfS2fkblgk3o3CWhpsJiP5EOFIZQcSfSHON2FkqaOy0ONnZlSDxQuRWbO7Bg2Pu7Xszs3dAgyjonm2CNQfrJHCIk95OPHOSZ7CW3+hrG/UD2Dp3pldm6Eg68jUZxAiYhIBpt8eyFWov9QNIXs3MrepPAliHfuc6shC7cLkOAXn9gER2wfL04yUnuo0oYHe5MrB1+ZXl8cwbVCJNl5Fk+yA9BesdSAqQvAUWVmNJTeO0C+PofAUkXZA8znw5VfTajp2dizRrgXU8PSwPYL0E9w9A2R46vVWje3Y1e2ear7CxeVSC9TZ0VCDptxcbuVwCZYdguQ8/5E21lvTDRKmu4bdILtbD1O/zJiij8P8CGmAWnx8PDGZ288uMAAAAAElFTkSuQmCC">
-      <a class="user-name"><p>Conta</p></a>
+        <a class="user-name"><p>Conta</p></a>
       </div>
     </nav>
   </div>
