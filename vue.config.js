@@ -7,5 +7,4 @@ module.exports = {
       patterns: [path.resolve(__dirname, "./src/styles/global.scss")]
     }
   },
-  publicPath: process.env.NODE_ENV === "production" ? "/teste_pr-tico_descoberta/" : "/",
 };
