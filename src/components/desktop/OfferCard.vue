@@ -29,7 +29,7 @@
       </div>
     </div>
     <div class="card-buttons">
-      <button class="delete">Excluir</button>
+      <button class="delete" @click="deleteOffer">Excluir</button>
       <button class="view" v-if="data.enabled">Ver Oferta</button>
       <button class="disabled" v-if="!data.enabled">Indisponível</button>
     </div>
@@ -42,6 +42,14 @@ export default {
   props: {
     data: Object,
   },
+  methods: {
+    deleteOffer(){
+      let userOffers = JSON.parse(localStorage.getItem('user-offers'))
+      userOffers.splice(this.data.id, 1)
+      localStorage.setItem('user-offers', JSON.stringify(userOffers))
+      window.location.reload();
+    }
+  }
 };
 </script>
 

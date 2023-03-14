@@ -141,6 +141,7 @@ export default {
   methods: {
     closeModal() {
       this.$emit("close");
+      window.location.reload();
     },
     addOffers() {
       let userOffers = localStorage.getItem("user-offers")
