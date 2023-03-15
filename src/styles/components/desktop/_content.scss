@@ -1,71 +1,70 @@
 @import '@/styles/global.scss';
 
+a {
+  cursor: pointer;
+}
+
 .content {
   padding: 0 10%;
-  .filter{
+
+  .filter {
     @extend %display-flex-row;
     justify-content: flex-end;
     width: 100%;
-  }
-}
 
-a{
-  cursor: pointer;
-}
+    nav {
+      border: solid 1px $secondary-blue;
+      border-radius: 10px;
+      overflow: hidden;
+      width: fit-content;
+      margin: 50px 0 50px 0;
 
-.card-add{
-  width: 260px;
-  height: 450px;
-  padding: 20px;
-  background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  @extend %display-flex-column;
-  justify-content: center;
-  margin: 20px;
-  cursor: pointer;
-  transition: 0.2s;
-}
+      p {
+        padding: 0.1in;
+        margin: 0;
+      }
 
-.cards{
-  @extend %display-flex-row;
-  flex-wrap: wrap;
-}
+      a {
+        padding: 0.1in;
+        transition: 0.3s;
 
-.card-add:hover{
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 15px;
-}
+        p {
+          display: inline-block;
+          color: $secondary-blue;
+          font-weight: bolder;
+          transition: 0.3s;
+        }
+      }
 
-nav {
-  border: solid 1px $secondary-blue;
-  border-radius: 10px;
-  overflow: hidden;
-  width: fit-content;
-  margin: 50px 0 50px 0;
+      a:hover {
+        background-color: $secondary-blue;
 
-
-  p {
-    padding: 0.1in;
-    margin: 0;
-  }
-
-  a {
-    padding: 0.1in;
-    transition: 0.3s;
-
-    p {
-      display: inline-block;
-      color: $secondary-blue;
-      font-weight: bolder;
-      transition: 0.3s;
+        p {
+          color: white;
+        }
+      }
     }
   }
 
-  a:hover {
-    background-color: $secondary-blue;
+  .cards {
+    @extend %display-flex-row;
+    flex-wrap: wrap;
 
-    p {
-      color: white;
+    .card-add {
+      width: 260px;
+      height: 450px;
+      padding: 20px;
+      background-color: white;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      @extend %display-flex-column;
+      justify-content: center;
+      margin: 20px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .card-add:hover {
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 15px;
     }
   }
-
 }

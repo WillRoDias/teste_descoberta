@@ -12,6 +12,7 @@
   .close-btn {
     width: 750px;
     text-align: right;
+
     .close-btn-button {
       background: none;
       color: white;
@@ -21,7 +22,8 @@
       font-size: large;
       transition: 0.2s;
     }
-    .close-btn-button:hover{
+
+    .close-btn-button:hover {
       color: red
     }
   }
@@ -145,7 +147,6 @@
 
             .course-info {
               flex: 2;
-
               padding-left: 10px;
 
               p {
